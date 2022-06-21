@@ -4,10 +4,10 @@ import math
 
 
 def main():
-    nPlayers = int(input('wie viele Spieler sollen spielen?'))
-    money = int(input('wie viel Geld sollen die Spieler jeweils haben?'))
-    winningProb = float(input('wie hoch soll die Gewinnchance sein? (in prozent)'))
-    minPrice = int(input('wie hoch soll der Mindeseinsatz sein?'))
+    nPlayers = int(input('how many players should play?'))
+    money = int(input('how much money should each player have?'))
+    winningProb = float(input('what should the winning probability be? (in percent)'))
+    minPrice = int(input('what should be the minimum amount for a bet?'))
 
     players = list(range(nPlayers))
     nGames = calculateNResults(money=money, minPrice=minPrice)
@@ -18,7 +18,7 @@ def main():
     loosingProb = calculateLoosingProbability(lostPlayers=nLoosingPlayers, totalPlayers=nPlayers)
     casinoEarnigns = calculateTotalMoneyTransaction(lostPlayers=nLoosingPlayers, totalPlayers=nPlayers, nGames=nGames, minPrice=minPrice)
 
-    print(f'Wahrscheinlichkeit zu verlieren: {loosingProb}\nVom Casino verdientes Geld: {casinoEarnigns}€\nVom Casino verdientes Geld pro Person: {casinoEarnigns / nPlayers}€')
+    print(f'probability of loosing: {loosingProb}\Money earned by casino: {casinoEarnigns}€\Money earned by casino per person: {casinoEarnigns / nPlayers}€')
     plotResults(results)
  
 
@@ -48,9 +48,9 @@ def plotResults(results):
 
     plt.bar(range(len(results)), results)
     
-    plt.title('kann man ein Casino besiegen?')
-    plt.xlabel('Anzahl der Spiele')
-    plt.ylabel('Häufigkeit')
+    plt.title('Can you defeat a casino?')
+    plt.xlabel('Number of games')
+    plt.ylabel('outcomes')
     plt.show()
     
 
